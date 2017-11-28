@@ -2,13 +2,15 @@
   "name": "cyclomatic-complexity-lab",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
+    "start": "node ./lib/index",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "chalk": "^2.3.0",
     "express": "^4.16.2"
   },
   "devDependencies": {
