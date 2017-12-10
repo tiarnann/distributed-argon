@@ -2,10 +2,12 @@
   "name": "cyclomatic-complexity-lab",
   "version": "1.0.0",
   "description": "",
-  "main": "lib/index.js",
+  "main": "lib/manager.js",
   "scripts": {
     "start": "node ./lib/index",
-    "test": "mocha ./lib/tests/*-test.js"
+    "test": "mocha ./lib/tests/*-test.js",
+    "clean": "rm -rf master-copy; rm -rf tmp",
+    "real":  "git=https://github.com/tiarnann/college-work npm start"
   },
   "author": "",
   "license": "ISC",
