@@ -1,5 +1,5 @@
 {
-  "name": "cyclomatic-complexity-lab",
+  "name": "distributed-argon-assignment",
   "version": "1.0.0",
   "description": "",
   "main": "lib/manager.js",
@@ -8,12 +8,13 @@
     "start": "node ./lib/manager",
     "test": "mocha ./lib/tests/*-test.js",
     "clean": "rm -rf master-copy; rm -rf tmp",
-    "real":  "project=https://github.com/yingchaoyong/haskell99 npm start"
+    "real": "project=https://github.com/yingchaoyong/haskell99 npm start"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "chalk": "^2.3.0",
+    "cli-chart": "^0.3.1",
     "express": "^4.16.2",
     "sanitize": "^2.0.1"
   },
