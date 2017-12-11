@@ -4,10 +4,11 @@
   "description": "",
   "main": "lib/manager.js",
   "scripts": {
+    "preinstall": "cabal install argon",
     "start": "node ./lib/manager",
     "test": "mocha ./lib/tests/*-test.js",
     "clean": "rm -rf master-copy; rm -rf tmp",
-    "real":  "git=https://github.com/tiarnann/college-work npm start"
+    "real":  "project=https://github.com/yingchaoyong/haskell99 npm start"
   },
   "author": "",
   "license": "ISC",
