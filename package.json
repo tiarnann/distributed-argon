@@ -5,20 +5,12 @@
   "main": "lib/manager.js",
   "scripts": {
     "preinstall": "cabal install argon",
-    "start": "node ./lib/manager",
-    "test": "mocha ./lib/tests/*-test.js",
-    "clean": "rm -rf master-copy; rm -rf tmp",
-    "real": "project=https://github.com/yingchaoyong/haskell99 npm start"
+    "start": "rm -rf ./tmp && mkdir tmp &&  node ./lib/manager"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "chalk": "^2.3.0",
-    "cli-chart": "^0.3.1",
-    "express": "^4.16.2",
-    "sanitize": "^2.0.1"
+    "chalk": "^2.3.0"
   },
-  "devDependencies": {
-    "mocha": "^4.0.1"
-  }
+  "devDependencies": {}
 }
