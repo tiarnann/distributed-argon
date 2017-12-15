@@ -9,10 +9,12 @@ __\*Note: I left this out as Stephen said (in the one-to-one meetings) that is i
 
 ## Mode Implementation
 ### Master-slave
-Each worker is given N jobs,  where `N = ceil(NumberOfCommits / NumberOfWorkers)`. Workers analyse entire commits with argon. When a worker is created, it will ask for a job from master, when that job is finished it will run a callback which then asks for another from the master process which creates a loop of complete a job and ask for another. The workers have their own job queue within the master and can only consume those jobs, when the given jobs are completed the worker is then killed.
+Each worker is given N jobs,  where `N = NumberOfCommits / NumberOfWorkers` and any remaining jobs are put on the first workers queue. Workers analyse entire commits with argon. When a worker is created, it will ask for a job from master, when that job is finished it will run a callback which then asks for another from the master process which creates a loop of complete a job and ask for another. The workers have their own job queue within the master and can only consume those jobs, when the given jobs are completed the worker is then killed.
 
 ### Work-stealing
 This has a similar implementation to _Master-slave_ mode, the division of jobs is the same but the consuming process is different. Once workers have finished consuming their jobs on their own job queue the worker is not killed but it then will be given jobs from another worker's queue, so all workers are killed only when the total remaining job count has reached zero not their own total job count. 
+
+Stealing a job can be unsuccessful, the job returning can be `undefined`, when this happens the worker will be ask for another till it gets one that is defined. This happens because the stealing process attempts to off the queue of random worker `RandomJob = JobQueue[random].pop()` where `random = floor(NumberOfWorkers * rand())`.
 
 ## Worker Job Implementation
 Once a worker gets a job, it will be in the form of a single commit. The worker copies a master-copy of the project repository into a new folder with a unique name which will be a combination of the commit and the worker's process id. The worker then resets the git branch head of said folder using `git reset --hard <commit short hash> -f`, once all that is finished it then runs argon on the folder repo. 
