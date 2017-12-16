@@ -31,6 +31,7 @@ Dual-core Intel Core i5 @ 1.4 GHz | 8GB | SSD
 
 ### Running on a small repo first
 Project: [HaskellStarter](https://github.com/joshcough/HaskellStarter)
+
 #Workers | master-slave | work-stealing
 ---|----|----
 1 | 24.49s | 24.199s
