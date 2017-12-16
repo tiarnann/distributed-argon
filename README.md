@@ -23,6 +23,7 @@ Once a worker gets a job, it will be in the form of a single commit. The worker 
 Time is measured from the start of the first worker where the git repository has already been fetched, to not take the network time into account, and the commits have been taken from the repo, and then the end is when the master has closed. Time taken to copy the repo into new folders for each commit is also in the final time so potential bottle-necking from the users disk can be a factor. 
 
 ## Results
+
 ### Setup
 All tests were run my own laptop, which features...
 CPU | Memory | Disk
